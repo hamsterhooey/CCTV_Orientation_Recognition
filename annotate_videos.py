@@ -10,10 +10,6 @@ import subprocess as sp
 from tqdm import tqdm
 from tqdm import trange
 
-"""
-Pause is the main operation. Once paused, this is when you mark the frames
-"""
-
 
 class Video:
     def __init__(self):
@@ -50,7 +46,7 @@ class Video:
 
     def save_direction_timestamps(self):  # Save as pickle as well as a CSV
         with open(self.video_path[:-4] + '.pkl', "wb") as fp:
-            pickle.dump(self.direction_timestamp, fp)
+            pickle.dump(self.direction_timestamps, fp)
 
         with open(self.video_path[:-4] + '.csv', "w", newline="") as fp:
             writer = csv.writer(fp)
@@ -111,12 +107,12 @@ def main():
     video.initialize_for_annotation(args.video_path, args.media_db, args.cond_db)
     for defect_timestamp, pacp_code in tqdm(video.defect_timestamps, desc='PACP defects in video'):
         video.mark_timestamps(defect_timestamp * 1000)
-    video.save_direction_timestampss()
+    video.save_direction_timestamps()
 
     """
     Usage:
 
-    python annotate_videos.py --media_db "data/video_databases/Media_Inspections.csv" --cond_db "data/video_databases/Conditions.csv" --video_path "data/video_files/8685.MPG"
+python annotate_videos.py --media_db "data/video_databases/Media_Inspections.csv" --cond_db "data/video_databases/Conditions.csv" --video_path "data/video_files/8685.MPG"
     """
 
 
