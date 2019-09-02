@@ -79,6 +79,12 @@ class Video:
             elif key == ord('2'):
                 timestamp += 100
 
+            elif key == ord('3'):
+                timestamp += -2000
+
+            elif key == ord('4'):
+                timestamp += 2000
+
             elif key in mark_frame:
                 self.direction_timestamps[mark_frame.index(key)].append(timestamp)
                 self.display_marked()
@@ -112,7 +118,7 @@ def main():
     """
     Usage:
 
-python annotate_videos.py --media_db "data/video_databases/Media_Inspections.csv" --cond_db "data/video_databases/Conditions.csv" --video_path "data/video_files/8685.MPG"
+python annotate_videos.py --media_db "data/video_databases/Media_Inspections.csv" --cond_db "data/video_databases/Conditions.csv" --video_path "data/video_files/3.MPG"
     """
 
 
