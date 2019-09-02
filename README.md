@@ -4,84 +4,30 @@ Orientation recognition of CCTV camera using deep action recognition.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+annotate_videos.py is used to create annotations in videos.
+An example of an annotation is: ('left', 10800, 11800). This indicates that the video segment between 108sec and 118sec contained a left turn. First, we annotate multiple videos. Next, we run extract_images.py
+
+extract_images.py reads the annotations and extracts image sequences from the video files. For example, extract_images.py can be used to extract 30 image frames from the previous annotation, i.e., ('left', 10800, 11800)
+
+Note: You need the inspection video files and the inspection database to execute the above two programs.
+
+Sample extracted training images can be found in: data/extracted_labeled_images
+
+### Example Usage
+
+```
+python annotate_videos.py --media_db "data/video_databases/Media_Inspections.csv" --cond_db "data/video_databases/Conditions.csv" --video_path "data/video_files/3.MPG"
+```
+
+```
+python extract_images.py --video_dir "data/video_files" --output_dir "data/extracted_labeled_images" --num_frames 10
+```
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+Tested using opencv3.4.2
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* **Srinath Shiv Kumar** - [hamsterhooey](https://github.com/hamsterhooey)
+* **Jianna Cai** - [jiannan0721](https://github.com/jiannan0721)
