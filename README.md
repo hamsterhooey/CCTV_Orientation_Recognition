@@ -23,7 +23,7 @@ The extracted images are then labeled with bounding boxes using the LabelImg too
 
 We then use tensorflow object detection api to train a Faster R-CNN model. We make use of the numerous utils provided by tensorflow to accomplish this.
 
-[embed](https://github.com/hamsterhooey/CCTV_Orientation_Recognition/blob/master/images/Step%202.jpg)[/embed]
+(https://github.com/hamsterhooey/CCTV_Orientation_Recognition/blob/master/images/Step%202.jpg)
 
 ### Inference on videos to detect joint and vanishing points
 
