@@ -1,24 +1,33 @@
 # Project Title
 
-Orientation recognition of CCTV camera using deep action recognition.
+Sensing the camera-pose of a sewer-inspection robot using vision-based methods.
 
-## Getting Started
+## Project Overview
 
-annotate_videos.py is used to create annotations in videos.
-An example of an annotation is: ('left', 10800, 11800). This indicates that the video segment between 108sec and 118sec contained a left turn. First, we annotate multiple videos. Next, we run extract_images.py
+Underground sewers are GPS-denied environments. Hence, we use a vision-based method to determine the location of autonomous robots in pipes. The project consists of three parts: (1) extraction and annotation of images for training an object detection model, (2) training a Faster R-CNN object detection model to detect the vanishing points and joints in sewer inspection videos, and (3) using the results of inference (i.e., joint and vanishing point detection) to calculate the position of the robot.
 
-extract_images.py reads the annotations and extracts image sequences from the video files. For example, extract_images.py can be used to extract 30 image frames from the previous annotation, i.e., ('left', 10800, 11800)
+### Extraction and annotation of images
 
-Note: You need the inspection video files and the inspection database to execute the above two programs.
+Please see annotated_images.py. It runs a Tkinter-based tool to mark events in a video. Events represent the start and end of a particular feature appearing in the video. For instance, marking the start and end of an event which involves the camera making a turn. 
 
-Sample extracted training images can be found in: data/extracted_labeled_images
+Once a video has been marked, extract_images.py reads the marked events and extracts images between the marked time intervals. For instance if an event is marked at 10 seconds and 15 seconds, then extract_images.py can be used to extract multiple images in this time interval.
+
+The extracted images are then labeled with bounding boxes using the LabelImg tool (github:Tzuatlin).
+
+### Training a model to detect vanishing points and joints
+
+We then use tensorflow object detection api to train a Faster R-CNN model. We make use of the numerous utils provided by tensorflow to accomplish this.
+
+### Inference on videos to detect joint and vanishing points
+
+We then run the inference script located in the "models" folder, to load the frozen tensorflow model and process frames of an input video.
+
 
 ### Example Usage
 
 ```
 python annotate_videos.py --media_db "data/video_databases/Media_Inspections.csv" --cond_db "data/video_databases/Conditions.csv" --video_path "data/video_files/3.MPG"
 ```
-
 ```
 python extract_images.py --video_dir "data/video_files" --output_dir "data/extracted_labeled_images" --num_frames 10
 ```
@@ -30,4 +39,3 @@ Tested using opencv3.4.2
 ## Authors
 
 * **Srinath Shiv Kumar** - [hamsterhooey](https://github.com/hamsterhooey)
-* **Jianna Cai** - [jiannan0721](https://github.com/jiannan0721)
