@@ -17,19 +17,19 @@ Once a video has been marked, extract_images.py reads the marked events and extr
 
 The extracted images are then labeled with bounding boxes using the LabelImg tool (github:Tzuatlin).
 
-![alt text](https://github.com/hamsterhooey/CCTV_Orientation_Recognition/blob/master/images/Step%201.pdf)
+![alt text](https://github.com/hamsterhooey/CCTV_Orientation_Recognition/blob/master/images/Step%201.jpg)
 
 ### Training a model to detect vanishing points and joints
 
 We then use tensorflow object detection api to train a Faster R-CNN model. We make use of the numerous utils provided by tensorflow to accomplish this.
 
-[embed](https://github.com/hamsterhooey/CCTV_Orientation_Recognition/blob/master/images/Step%202.pdf)[/embed]
+[embed](https://github.com/hamsterhooey/CCTV_Orientation_Recognition/blob/master/images/Step%202.jpg)[/embed]
 
 ### Inference on videos to detect joint and vanishing points
 
 We then run the inference script located in the "models" folder, to load the frozen tensorflow model and process frames of an input video.
 
-![alt text](https://github.com/hamsterhooey/CCTV_Orientation_Recognition/blob/master/images/Step%203.pdf)
+![alt text](https://github.com/hamsterhooey/CCTV_Orientation_Recognition/blob/master/images/Step%203.jpg)
 
 ### Example Usage
 
