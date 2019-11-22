@@ -6,6 +6,8 @@ Sensing the camera-pose of a sewer-inspection robot using vision-based methods.
 
 Underground sewers are GPS-denied environments. Hence, we use a vision-based method to determine the location of autonomous robots in pipes. The project consists of three parts: (1) extraction and annotation of images for training an object detection model, (2) training a Faster R-CNN object detection model to detect the vanishing points and joints in sewer inspection videos, and (3) using the results of inference (i.e., joint and vanishing point detection) to calculate the position of the robot.
 
+![alt text](https://github.com/hamsterhooey/CCTV_Orientation_Recognition/blob/master/images/Step%200.gif)
+
 ### Extraction and annotation of images
 
 Please see annotated_images.py. It runs a Tkinter-based tool to mark events in a video. Events represent the start and end of a particular feature appearing in the video. For instance, marking the start and end of an event which involves the camera making a turn.
