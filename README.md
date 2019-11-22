@@ -8,7 +8,9 @@ Underground sewers are GPS-denied environments. Hence, we use a vision-based met
 
 ### Extraction and annotation of images
 
-Please see annotated_images.py. It runs a Tkinter-based tool to mark events in a video. Events represent the start and end of a particular feature appearing in the video. For instance, marking the start and end of an event which involves the camera making a turn. 
+Please see annotated_images.py. It runs a Tkinter-based tool to mark events in a video. Events represent the start and end of a particular feature appearing in the video. For instance, marking the start and end of an event which involves the camera making a turn.
+
+Please see annotated_images.py. It runs a Tkinter-based tool to mark events in a video. Events represent the start and end of a particular feature appearing in the video. For instance, marking the start and end of an event which involves the camera making a turn.
 
 Once a video has been marked, extract_images.py reads the marked events and extracts images between the marked time intervals. For instance if an event is marked at 10 seconds and 15 seconds, then extract_images.py can be used to extract multiple images in this time interval.
 
